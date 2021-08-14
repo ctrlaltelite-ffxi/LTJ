@@ -1,0 +1,13 @@
+{
+  "name": "luatojson",
+  "version": "1.0.0",
+  "description": "Converts Lua to Json and merges json objects",
+  "main": "ConvertLuaToJson.js",
+  "scripts": {
+    "ltj": "lua54.exe ltj.lua",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eit",
+  "license": "ISC",
+  "dependencies": {}
+}
