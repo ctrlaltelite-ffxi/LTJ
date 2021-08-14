@@ -5,9 +5,10 @@
   "main": "ConvertLuaToJson.js",
   "scripts": {
     "ltj": "lua54.exe ltj.lua",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cleandata": "node --experimental-json-modules CleanData.js"
   },
-  "author": "Eit",
+  "author": "itsEit",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {},
+  "type": "module"
 }

@@ -1,10 +1,13 @@
 -- Run this code to Convert the Items and Desc to JSON Format
 local json = require ("res/dkjson")
+
+-- Import the Lua Files from Windower
 local items = require ("luaFiles/items")
 local itemDesc = require ("luaFiles/item_descriptions")
 local jobs = require ("luaFiles/jobs")
 local slots = require ("luaFiles/slots")
 
+-- Export the individual Json files
 local itemsJson = json.encode (items, { indent = true })
 file = io.open("jsonFiles/items.json", "w")
 file:write(itemsJson)
