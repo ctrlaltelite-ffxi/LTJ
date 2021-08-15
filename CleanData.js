@@ -10,7 +10,7 @@ let FullGear = [];
 itemKeys.forEach((key) => {
   if (GearItems[key].category === "Armor") {
     let item = {};
-    item._id = key;
+    item._id = Number(key);
     item.name = GearItems[key].en;
     item.nameFull = GearItems[key].enl;
     item.jobs = GearItems[key].jobs;
