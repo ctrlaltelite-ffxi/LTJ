@@ -10,8 +10,9 @@ let FullGear = [];
 itemKeys.forEach((key) => {
   if (GearItems[key].category === "Armor") {
     let item = {};
-    item.id = key;
+    item._id = key;
     item.name = GearItems[key].en;
+    item.nameFull = GearItems[key].enl;
     item.jobs = GearItems[key].jobs;
     item.category = GearItems[key].category;
     item.level = GearItems[key].level;
@@ -26,6 +27,4 @@ itemKeys.forEach((key) => {
 });
 
 let data = JSON.stringify(FullGear);
-fs.writeFileSync('FullItems.json', data);
-
-
+fs.writeFileSync("FullItems.json", data);
