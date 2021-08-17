@@ -2,99 +2,31 @@ import { getArmorSlot, getJobSlot } from "./GearDecoder.js";
 
 export function parseGear(itemDesc) {
   let item = { ...itemDesc, stats: {}, descTest: itemDesc.desc };
-  let tempObj = {};
+
   let testDesc = item.descTest;
-  let tests = [];
+  const tests = [
+    { stat: "DEF", tests: [/DEF(:-|:\+|:)\d*/g] },
+    { stat: "DMG", tests: [/DMG(:-|:)\d*/g] },
+    { stat: "Delay", tests: [/Delay(:-|:)\d*/g] },
+    { stat: "HP", tests: [/HP(\+|-)\d*/g] },
+    { stat: "MP", tests: [/MP(\+|-)\d*/g] },
+    { stat: "STR", tests: [/STR(\+|-)\d*/g] },
+    { stat: "DEX", tests: [/DEX(\+|-)\d*/g] },
+    { stat: "VIT", tests: [/VIT(\+|-)\d*/g] },
+    { stat: "AGI", tests: [/AGI(\+|-)\d*/g] },
+    { stat: "INT", tests: [/INT(\+|-)\d*/g] },
+    { stat: "MND", tests: [/MND(\+|-)\d*/g] },
+    { stat: "CHR", tests: [/CHR(\+|-)\d*/g] },
+    { stat: "MagicAcc", tests: [/Magic Accuracy(\+|-)\d*/g] },
+    { stat: "MeleeAcc", tests: [/Accuracy(\+|-)\d*/g] },
+    { stat: "GearHaste", tests: [/Haste(\+|-)\d*/g] },
+  ];
 
-  // Get Defense
-  tests = [/DEF(:-|:\+|:)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.DEF = tempObj.stat;
-
-  // Get Damage
-  tests = [/DMG(:-|:)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.DMG = tempObj.stat;
-
-  // Get Delay
-  tests = [/Delay(:-|:)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.Delay = tempObj.stat;
-
-  // Get HP
-  tests = [/HP(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.HP = tempObj.stat;
-
-  // Get MP
-  tests = [/MP(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.MP = tempObj.stat;
-
-  // Get STR
-  tests = [/STR(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.STR = tempObj.stat;
-
-  // Get DEX
-  tests = [/DEX(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.DEX = tempObj.stat;
-
-  // Get VIT
-  tests = [/VIT(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.VIT = tempObj.stat;
-
-  // Get AGI
-  tests = [/AGI(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.AGI = tempObj.stat;
-
-  // Get INT
-  tests = [/INT(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.INT = tempObj.stat;
-
-  // Get MND
-  tests = [/MND(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.MND = tempObj.stat;
-
-  // Get CHR
-  tests = [/CHR(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.CHR = tempObj.stat;
-
-  // Get Magic Accuracy
-  tests = [/Magic Accuracy(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.MagicAcc = tempObj.stat;
-
-  // Get Accuracy
-  tests = [/Accuracy(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.MeleeAcc = tempObj.stat;
-
-  // Get Haste
-  tests = [/Haste(\+|-)\d*/g];
-  tempObj = getStats(testDesc, tests);
-  testDesc = tempObj.newDesc;
-  if (tempObj.stat !== 0) item.stats.GearHaste = tempObj.stat;
+  tests.forEach((test) => {
+    const tempObj = getStats(testDesc, test.tests);
+    testDesc = tempObj.newDesc;
+    if (tempObj.stat !== 0) item.stats[test.stat] = tempObj.stat;
+  });
 
   item.slotName = getArmorSlot(item.slots);
   item.jobSlots = getJobSlot(item.jobs);
