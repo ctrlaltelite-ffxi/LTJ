@@ -18,8 +18,20 @@ export function parseGear(itemDesc) {
     { stat: "MND", tests: [/MND(\+|-)\d*/g] },
     { stat: "CHR", tests: [/CHR(\+|-)\d*/g] },
     { stat: "MagicAcc", tests: [/Magic Accuracy(\+|-)\d*/g] },
+    { stat: "MagicAcc", tests: [/Magic Accracy(\+|-)\d*/g] },
     { stat: "MeleeAcc", tests: [/Accuracy(\+|-)\d*/g] },
     { stat: "GearHaste", tests: [/Haste(\+|-)\d*/g] },
+    { stat: "CurePot", tests: [/"[Cc]ure\\" [Pp]otency (\+|-)\d*/g] },
+    { stat: "Enmity", tests: [/Enmity(\+|-)\d*/g] },
+    { stat: "MAB", tests: [/"Magic Atk. Bonus\\"(\+|-)\d*/g] },
+    { stat: "mEva", tests: [/Magic Eva.(\+|-)\d*/g] },
+    { stat: "Eva", tests: [/Eva.(\+|-)\d*/g] },
+    { stat: "mDefBonus", tests: [/"Magic Def. Bonus\\"(\+|-)\d*/g] },
+    { stat: "mBurstBonus", tests: [/Magic burst damage (\+|-)\d*/g] },
+    { stat: "MDT", tests: [/[Mm]agic [Dd]amage taken (\+|-)\d*/g] },
+    { stat: "PDT", tests: [/[Pp]hysical [Dd]amage taken (\+|-)\d*/g] },
+    { stat: "DT", tests: [/[Dd]amage taken (\+|-)\d*/g] },
+
   ];
 
   tests.forEach((test) => {

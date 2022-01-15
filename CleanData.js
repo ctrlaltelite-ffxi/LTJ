@@ -22,6 +22,14 @@ itemKeys.forEach((key) => {
     } else {
       item.desc = "None";
     }
+
+    // fs.readFile("Undefined.json", function (err, data) {
+    //   let json = JSON.parse(data);
+    //   json.push(...item);
+
+    //   fs.writeFile("Undefined.json", JSON.stringify(json));
+    // });
+
     FullGear.push(parseGear(item));
   }
 });
