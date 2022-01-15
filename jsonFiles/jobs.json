@@ -1,170 +1,170 @@
 {
   "0":{
-    "id":0,
-    "en":"None",
     "ja":"なし",
-    "jas":"",
-    "ens":"NON"
+    "en":"None",
+    "id":0,
+    "ens":"NON",
+    "jas":""
   },
   "1":{
-    "id":1,
-    "en":"Warrior",
     "ja":"戦士",
-    "jas":"戦",
-    "ens":"WAR"
+    "en":"Warrior",
+    "id":1,
+    "ens":"WAR",
+    "jas":"戦"
   },
   "2":{
-    "id":2,
-    "en":"Monk",
     "ja":"モンク",
-    "jas":"モ",
-    "ens":"MNK"
+    "en":"Monk",
+    "id":2,
+    "ens":"MNK",
+    "jas":"モ"
   },
   "3":{
-    "id":3,
-    "en":"White Mage",
     "ja":"白魔道士",
-    "jas":"白",
-    "ens":"WHM"
+    "en":"White Mage",
+    "id":3,
+    "ens":"WHM",
+    "jas":"白"
   },
   "4":{
-    "id":4,
-    "en":"Black Mage",
     "ja":"黒魔道士",
-    "jas":"黒",
-    "ens":"BLM"
+    "en":"Black Mage",
+    "id":4,
+    "ens":"BLM",
+    "jas":"黒"
   },
   "5":{
-    "id":5,
-    "en":"Red Mage",
     "ja":"赤魔道士",
-    "jas":"赤",
-    "ens":"RDM"
+    "en":"Red Mage",
+    "id":5,
+    "ens":"RDM",
+    "jas":"赤"
   },
   "6":{
-    "id":6,
-    "en":"Thief",
     "ja":"シーフ",
-    "jas":"シ",
-    "ens":"THF"
+    "en":"Thief",
+    "id":6,
+    "ens":"THF",
+    "jas":"シ"
   },
   "7":{
-    "id":7,
-    "en":"Paladin",
     "ja":"ナイト",
-    "jas":"ナ",
-    "ens":"PLD"
+    "en":"Paladin",
+    "id":7,
+    "ens":"PLD",
+    "jas":"ナ"
   },
   "8":{
-    "id":8,
-    "en":"Dark Knight",
     "ja":"暗黒騎士",
-    "jas":"暗",
-    "ens":"DRK"
+    "en":"Dark Knight",
+    "id":8,
+    "ens":"DRK",
+    "jas":"暗"
   },
   "9":{
-    "id":9,
-    "en":"Beastmaster",
     "ja":"獣使い",
-    "jas":"獣",
-    "ens":"BST"
+    "en":"Beastmaster",
+    "id":9,
+    "ens":"BST",
+    "jas":"獣"
   },
   "10":{
-    "id":10,
-    "en":"Bard",
     "ja":"吟遊詩人",
-    "jas":"詩",
-    "ens":"BRD"
+    "en":"Bard",
+    "id":10,
+    "ens":"BRD",
+    "jas":"詩"
   },
   "11":{
-    "id":11,
-    "en":"Ranger",
     "ja":"狩人",
-    "jas":"狩",
-    "ens":"RNG"
+    "en":"Ranger",
+    "id":11,
+    "ens":"RNG",
+    "jas":"狩"
   },
   "12":{
-    "id":12,
-    "en":"Samurai",
     "ja":"侍",
-    "jas":"侍",
-    "ens":"SAM"
+    "en":"Samurai",
+    "id":12,
+    "ens":"SAM",
+    "jas":"侍"
   },
   "13":{
-    "id":13,
-    "en":"Ninja",
     "ja":"忍者",
-    "jas":"忍",
-    "ens":"NIN"
+    "en":"Ninja",
+    "id":13,
+    "ens":"NIN",
+    "jas":"忍"
   },
   "14":{
-    "id":14,
-    "en":"Dragoon",
     "ja":"竜騎士",
-    "jas":"竜",
-    "ens":"DRG"
+    "en":"Dragoon",
+    "id":14,
+    "ens":"DRG",
+    "jas":"竜"
   },
   "15":{
-    "id":15,
-    "en":"Summoner",
     "ja":"召喚士",
-    "jas":"召",
-    "ens":"SMN"
+    "en":"Summoner",
+    "id":15,
+    "ens":"SMN",
+    "jas":"召"
   },
   "16":{
-    "id":16,
-    "en":"Blue Mage",
     "ja":"青魔道士",
-    "jas":"青",
-    "ens":"BLU"
+    "en":"Blue Mage",
+    "id":16,
+    "ens":"BLU",
+    "jas":"青"
   },
   "17":{
-    "id":17,
-    "en":"Corsair",
     "ja":"コルセア",
-    "jas":"コ",
-    "ens":"COR"
+    "en":"Corsair",
+    "id":17,
+    "ens":"COR",
+    "jas":"コ"
   },
   "18":{
-    "id":18,
-    "en":"Puppetmaster",
     "ja":"からくり士",
-    "jas":"か",
-    "ens":"PUP"
+    "en":"Puppetmaster",
+    "id":18,
+    "ens":"PUP",
+    "jas":"か"
   },
   "19":{
-    "id":19,
-    "en":"Dancer",
     "ja":"踊り子",
-    "jas":"踊",
-    "ens":"DNC"
+    "en":"Dancer",
+    "id":19,
+    "ens":"DNC",
+    "jas":"踊"
   },
   "20":{
-    "id":20,
-    "en":"Scholar",
     "ja":"学者",
-    "jas":"学",
-    "ens":"SCH"
+    "en":"Scholar",
+    "id":20,
+    "ens":"SCH",
+    "jas":"学"
   },
   "21":{
-    "id":21,
-    "en":"Geomancer",
     "ja":"風水士",
-    "jas":"風",
-    "ens":"GEO"
+    "en":"Geomancer",
+    "id":21,
+    "ens":"GEO",
+    "jas":"風"
   },
   "22":{
-    "id":22,
-    "en":"Rune Fencer",
     "ja":"魔導剣士",
-    "jas":"剣",
-    "ens":"RUN"
+    "en":"Rune Fencer",
+    "id":22,
+    "ens":"RUN",
+    "jas":"剣"
   },
   "23":{
-    "id":23,
-    "en":"Monipulator",
     "ja":"モンストロス",
-    "jas":"MON",
-    "ens":"MON"
+    "en":"Monipulator",
+    "id":23,
+    "ens":"MON",
+    "jas":"MON"
   }
 }

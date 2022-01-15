@@ -1,66 +1,66 @@
 {
   "0":{
-    "id":0,
-    "en":"Main"
+    "en":"Main",
+    "id":0
   },
   "1":{
-    "id":1,
-    "en":"Sub"
+    "en":"Sub",
+    "id":1
   },
   "2":{
-    "id":2,
-    "en":"Range"
+    "en":"Range",
+    "id":2
   },
   "3":{
-    "id":3,
-    "en":"Ammo"
+    "en":"Ammo",
+    "id":3
   },
   "4":{
-    "id":4,
-    "en":"Head"
+    "en":"Head",
+    "id":4
   },
   "5":{
-    "id":5,
-    "en":"Body"
+    "en":"Body",
+    "id":5
   },
   "6":{
-    "id":6,
-    "en":"Hands"
+    "en":"Hands",
+    "id":6
   },
   "7":{
-    "id":7,
-    "en":"Legs"
+    "en":"Legs",
+    "id":7
   },
   "8":{
-    "id":8,
-    "en":"Feet"
+    "en":"Feet",
+    "id":8
   },
   "9":{
-    "id":9,
-    "en":"Neck"
+    "en":"Neck",
+    "id":9
   },
   "10":{
-    "id":10,
-    "en":"Waist"
+    "en":"Waist",
+    "id":10
   },
   "11":{
-    "id":11,
-    "en":"Left Ear"
+    "en":"Left Ear",
+    "id":11
   },
   "12":{
-    "id":12,
-    "en":"Right Ear"
+    "en":"Right Ear",
+    "id":12
   },
   "13":{
-    "id":13,
-    "en":"Left Ring"
+    "en":"Left Ring",
+    "id":13
   },
   "14":{
-    "id":14,
-    "en":"Right Ring"
+    "en":"Right Ring",
+    "id":14
   },
   "15":{
-    "id":15,
-    "en":"Back"
+    "en":"Back",
+    "id":15
   }
 }
