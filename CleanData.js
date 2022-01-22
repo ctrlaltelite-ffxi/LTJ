@@ -6,32 +6,30 @@ import fs from "fs";
 
 // Loop through all gear and create new object
 const itemKeys = Object.keys(GearItems);
-let FullGear = [];
+let FullGear = {};
 itemKeys.forEach((key) => {
-  if (GearItems[key].category === "Armor") {
-    let item = {};
-    item._id = Number(key);
-    item.name = GearItems[key].en;
-    item.nameFull = GearItems[key].enl;
-    item.jobs = GearItems[key].jobs;
-    item.category = GearItems[key].category;
-    item.level = GearItems[key].level;
-    item.slots = GearItems[key].slots;
-    if (GearDesc[key]) {
-      item.desc = GearDesc[key].en;
-    } else {
-      item.desc = "None";
-    }
-
-    // fs.readFile("Undefined.json", function (err, data) {
-    //   let json = JSON.parse(data);
-    //   json.push(...item);
-
-    //   fs.writeFile("Undefined.json", JSON.stringify(json));
-    // });
-
-    FullGear.push(parseGear(item));
+  let item = {};
+  item._id = Number(key);
+  item.name = GearItems[key].en;
+  item.nameFull = GearItems[key].enl;
+  item.jobs = GearItems[key].jobs;
+  item.category = GearItems[key].category;
+  item.level = GearItems[key].level;
+  item.slots = GearItems[key].slots;
+  if (GearDesc[key]) {
+    item.desc = GearDesc[key].en;
+  } else {
+    item.desc = "None";
   }
+
+  let obj = {};
+  if (GearItems[key].category === "Armor") {
+    obj = parseGear(item);
+  } else {
+    obj = item;
+  }
+
+  FullGear[Number(key)] = obj;
 });
 
 let data = JSON.stringify(FullGear);
