@@ -5,43 +5,58 @@ export function parseGear(itemDesc) {
 
   let testDesc = item.descTest;
   const tests = [
-    { stat: "DEF", tests: [/DEF(:-|:\+|:)\d*/g] },
-    { stat: "DMG", tests: [/DMG(:-|:)\d*/g] },
-    { stat: "Delay", tests: [/Delay(:-|:)\d*/g] },
-    { stat: "HP", tests: [/HP(\+|-)\d*/g] },
-    { stat: "MP", tests: [/MP(\+|-)\d*/g] },
-    { stat: "STR", tests: [/STR(\+|-)\d*/g] },
-    { stat: "DEX", tests: [/DEX(\+|-)\d*/g] },
-    { stat: "VIT", tests: [/VIT(\+|-)\d*/g] },
-    { stat: "AGI", tests: [/AGI(\+|-)\d*/g] },
-    { stat: "INT", tests: [/INT(\+|-)\d*/g] },
-    { stat: "MND", tests: [/MND(\+|-)\d*/g] },
-    { stat: "CHR", tests: [/CHR(\+|-)\d*/g] },
-    { stat: "MagicAcc", tests: [/Magic Accuracy(\+|-)\d*/g] },
-    { stat: "MagicAcc", tests: [/Magic Accracy(\+|-)\d*/g] },
-    { stat: "MeleeAcc", tests: [/Accuracy(\+|-)\d*/g] },
-    { stat: "GearHaste", tests: [/Haste(\+|-)\d*/g] },
-    { stat: "CurePot", tests: [/"[Cc]ure\\" [Pp]otency (\+|-)\d*/g] },
-    { stat: "Enmity", tests: [/Enmity(\+|-)\d*/g] },
-    { stat: "MAB", tests: [/"Magic Atk. Bonus\\"(\+|-)\d*/g] },
-    { stat: "mEva", tests: [/Magic Eva.(\+|-)\d*/g] },
-    { stat: "Eva", tests: [/Eva.(\+|-)\d*/g] },
-    { stat: "mDefBonus", tests: [/"Magic Def. Bonus\\"(\+|-)\d*/g] },
-    { stat: "mBurstBonus", tests: [/Magic burst damage (\+|-)\d*/g] },
-    { stat: "MDT", tests: [/[Mm]agic [Dd]amage taken (\+|-)\d*/g] },
-    { stat: "PDT", tests: [/[Pp]hysical [Dd]amage taken (\+|-)\d*/g] },
-    { stat: "DT", tests: [/[Dd]amage taken (\+|-)\d*/g] },
-
+    { stat: "DEF", test: [/DEF(:-|:\+|:)\d*\%?/g] },
+    { stat: "DMG", test: [/DMG(:-|:\+|:)\d*\%?/g] },
+    { stat: "Delay", test: [/Delay(:-|:\+|:)\d*\%?/g] },
+    { stat: "HP", test: [/HP(\+|-)\d*\%?/g] },
+    { stat: "MP", test: [/MP(\+|-)\d*\%?/g] },
+    { stat: "STR", test: [/STR(\+|-)\d*\%?/g] },
+    { stat: "DEX", test: [/DEX(\+|-)\d*\%?/g] },
+    { stat: "VIT", test: [/VIT(\+|-)\d*\%?/g] },
+    { stat: "AGI", test: [/AGI(\+|-)\d*\%?/g] },
+    { stat: "INT", test: [/INT(\+|-)\d*\%?/g] },
+    { stat: "MND", test: [/MND(\+|-)\d*\%?/g] },
+    { stat: "CHR", test: [/CHR(\+|-)\d*\%?/g] },
+    { stat: "MagicAcc", test: [/Magic Accuracy(\+|-)\d*\%?/g] },
+    { stat: "MagicAcc", test: [/Magic Accracy(\+|-)\d*\%?/g] }, // Typo on some Gear
+    { stat: "MeleeAcc", test: [/Accuracy(\+|-)\d*\%?/g] },
+    { stat: "GearHaste", test: [/Haste(\+|-)\d*\%?/g] },
+    { stat: "CurePot", test: [/"[Cc]ure\" [Pp]otency\s?(\+|-)\d*\%?/g] },
+    { stat: "Enmity", test: [/Enmity(\+|-)\d*\%?/g] },
+    { stat: "MAB", test: [/"Magic Atk. Bonus\\"(\+|-)\d*\%?/g] },
+    { stat: "mEva", test: [/Magic Eva.(\+|-)\d*\%?/g] },
+    { stat: "Eva", test: [/Eva.(\+|-)\d*\%?/g] },
+    { stat: "mDefBonus", test: [/"Magic Def. Bonus\"\s?(\+|-)\d*\%?/g] },
+    { stat: "mBurstBonus", test: [/Magic burst damage (\+|-)\d*\%?/g] },
+    { stat: "MDT", test: [/[Mm]agic [Dd]amage taken (\+|-)\d*\%?/g] },
+    { stat: "PDT", test: [/[Pp]hysical [Dd]amage taken (\+|-)\d*\%?/g] },
+    { stat: "DT", test: [/[Dd]amage taken (\+|-)\d*\%?/g] },
   ];
 
+  // Remove Line Breaks
+  testDesc = testDesc.replace(/(\r\n|\n|\r)/gm, "")
+  
+  // Remove Generic Conditions at the end of Descriptions
+  testDesc = testDesc.replace(/Automaton:.+/g, "")
+  testDesc = testDesc.replace(/Pet:.+/g, "")
+  testDesc = testDesc.replace(/Avatar:.+/g, "")
+  testDesc = testDesc.replace(/Wyvern:.+/g, "")
+  testDesc = testDesc.replace(/Dispense:.+/g, "")
+  testDesc = testDesc.replace(/Reives:.+/g, "")
+  testDesc = testDesc.replace(/Enchantment:.+/g, "")
+  testDesc = testDesc.replace(/Experience point bonus:.+/g, "")
+  testDesc = testDesc.replace(/Capacity point bonus:.+/g, "")
+  
   tests.forEach((test) => {
-    const tempObj = getStats(testDesc, test.tests);
-    testDesc = tempObj.newDesc;
-    if (tempObj.stat !== 0) item.stats[test.stat] = tempObj.stat;
+    const [stat, desc] = getStats(testDesc, test.test);
+    testDesc = desc;
+    if (stat !== 0) item.stats[test.stat] = stat;
   });
 
   item.slotName = getArmorSlot(item.slots);
   item.jobSlots = getJobSlot(item.jobs);
+
+  // console.log(testDesc);
 
   delete item["jobs"];
   delete item["slots"];
@@ -67,5 +82,5 @@ const getStats = (testDesc, tests) => {
       desc = testDesc.replace(test, "");
     }
   });
-  return { stat: stat, newDesc: desc };
+  return [stat, desc];
 };

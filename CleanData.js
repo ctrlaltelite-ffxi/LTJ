@@ -7,6 +7,7 @@ import fs from "fs";
 // Loop through all gear and create new object
 const itemKeys = Object.keys(GearItems);
 let FullGear = {};
+let count = 1;
 itemKeys.forEach((key) => {
   let item = {};
   item._id = Number(key);
@@ -23,14 +24,16 @@ itemKeys.forEach((key) => {
   }
 
   let obj = {};
-  if (GearItems[key].category === "Armor") {
+  if (
+    GearItems[key].category === "Armor" ||
+    GearItems[key].category === "Weapon"
+  ) {
     obj = parseGear(item);
-  } else {
-    obj = item;
+    FullGear[Number(key)] = obj;
   }
-
-  FullGear[Number(key)] = obj;
+  count++;
 });
 
 let data = JSON.stringify(FullGear);
+console.log(count);
 fs.writeFileSync("FullItems.json", data);
