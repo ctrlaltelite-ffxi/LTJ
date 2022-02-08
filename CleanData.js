@@ -36,4 +36,4 @@ itemKeys.forEach((key) => {
 
 let data = JSON.stringify(FullGear);
 console.log(count);
-fs.writeFileSync("FullItems.json", data);
+fs.writeFileSync("build/FullItems.json", data);
